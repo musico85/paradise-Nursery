@@ -32,7 +32,7 @@ function Cart() {
 function App() {
     return (
         <Provider store={store}>
-            <BrowserRouter>
+            <BrowserRouter basename="/paradise-Nursery">
                 <Routes>
 
                     <Route path="/" element={<Home />} />
