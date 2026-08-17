@@ -1,0 +1,15 @@
+.landing-page {
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 40px;
+}
+
+.about-us {
+    color: black;
+}
+
+
+
