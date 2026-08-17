@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "./redux/CartSlice";
+const base = import.meta.env.BASE_URL;
 
 const plants = [
     {
@@ -7,42 +8,42 @@ const plants = [
         name: "Monstera Deliciosa",
         price: 25,
         category: "Plantas verdes",
-        image: "/plants/monstera.jpg"
+        image: `${base}plants/monstera.jpg`
     },
     {
         id: 2,
         name: "Pothos",
         price: 18,
         category: "Plantas verdes",
-        image: "/plants/pothos.jpg"
+        image: `${base}plants/pothos.jpg`
     },
     {
         id: 3,
         name: "Orquídea",
         price: 30,
         category: "Plantas con flor",
-        image: "/plants/orchid.jpg"
+        image: `${base}plants/orchid.jpg`
     },
     {
         id: 4,
         name: "Anturio",
         price: 28,
         category: "Plantas con flor",
-        image: "/plants/anthurium.jpg"
+        image: `${base}plants/anthurium.jpg`
     },
     {
         id: 5,
         name: "Aloe Vera",
         price: 15,
         category: "Suculentas",
-        image: "/plants/aloe.jpg"
+        image: `${base}plants/aloe.jpg`
     },
     {
         id: 6,
         name: "Echeveria",
         price: 12,
         category: "Suculentas",
-        image: "/plants/echeveria.jpg"
+        image: `${base}plants/echeveria.jpg`
     }
 ];
 
