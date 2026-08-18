@@ -33,31 +33,25 @@ function App() {
     return (
         <Provider store={store}>
             <BrowserRouter basename="/paradise-Nursery">
+
+                <Header />
+
                 <Routes>
 
                     <Route path="/" element={<Home />} />
 
                     <Route
                         path="/plants"
-                        element={
-                            <>
-                                <Header />
-                                <ProductList />
-                            </>
-                        }
+                        element={<ProductList />}
                     />
 
                     <Route
                         path="/cart"
-                        element={
-                            <>
-                                <Header />
-                                <Cart />
-                            </>
-                        }
+                        element={<Cart />}
                     />
 
                 </Routes>
+
             </BrowserRouter>
         </Provider>
     );
