@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Header() {
-    const totalItems = useSelector((state) =>
-        state.cart.items.reduce(
-            (total, item) => total + item.quantity,
-            0
-        )
+    const cartItems = useSelector((state) => state.cart.items);
+
+    const totalItems = cartItems.reduce(
+        (total, item) => total + item.quantity,
+        0
     );
 
     return (
