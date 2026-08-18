@@ -1,16 +1,69 @@
-# React + Vite
+# Paradise Nursery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Name
 
-Currently, two official plugins are available:
+**Paradise Nursery Shopping Application**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Description
 
-## React Compiler
+Paradise Nursery is a React-based online plant shopping application developed as a final project for the Coursera course **Developing Front-End Apps with React**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application allows users to browse plants organized by category, add plants to a shopping cart, manage product quantities, remove products, and view the total cost of their cart.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Browse plants by category.
+* View plant names, prices, and images.
+* Add plants to the shopping cart.
+* Increase product quantities.
+* Decrease product quantities.
+* Remove products from the cart.
+* Display the total number of items in the cart.
+* Calculate the total cost of the shopping cart.
+* Navigate between the home, plants, and shopping cart pages.
+
+## Technologies Used
+
+* React
+* Vite
+* React Router
+* Redux Toolkit
+* React Redux
+* JavaScript
+* HTML
+* CSS
+
+## Project Structure
+
+The application is organized into React components and Redux state management modules.
+
+Main components include:
+
+* `App.jsx`
+* `Header.jsx`
+* `ProductList.jsx`
+* `CartItem.jsx`
+* `AboutUs.jsx`
+
+Redux state management includes:
+
+* `redux/Store.jsx`
+* `redux/CartSlice.jsx`
+
+## Deployment
+
+The application is deployed using GitHub Pages.
+
+**Live Application:**
+https://musico85.github.io/paradise-Nursery/
+
+## Repository
+
+**GitHub Repository:**
+https://github.com/musico85/paradise-Nursery
+
+## Course
+
+**Developing Front-End Apps with React — Coursera**
+
+This project was developed as part of the final project requirements for the course.
