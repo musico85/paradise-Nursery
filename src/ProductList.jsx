@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "./redux/CartSlice";
+import { addItem } from "./redux/CartSlice";
+
 const base = import.meta.env.BASE_URL;
 
-const plants = [
+const plantsArray = [
     {
         id: 1,
         name: "Monstera Deliciosa",
@@ -50,6 +51,7 @@ const plants = [
 function ProductList() {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.items);
+
     const categories = [
         "Plantas verdes",
         "Plantas con flor",
@@ -62,11 +64,11 @@ function ProductList() {
 
             {categories.map((category) => (
                 <section key={category}>
-                    
+
                     <h2>{category}</h2>
 
                     <div className="products-grid">
-                        {plants
+                        {plantsArray
                             .filter((plant) => plant.category === category)
                             .map((plant) => (
                                 <div
@@ -82,11 +84,16 @@ function ProductList() {
                                     <h3>{plant.name}</h3>
 
                                     <p>${plant.price}</p>
+
                                     <button
-                                        onClick={() => dispatch(addToCart(plant))}
-                                        disabled={cartItems.some((item) => item.id === plant.id)}
+                                        onClick={() => dispatch(addItem(plant))}
+                                        disabled={cartItems.some(
+                                            (item) => item.id === plant.id
+                                        )}
                                     >
-                                        {cartItems.some((item) => item.id === plant.id)
+                                        {cartItems.some(
+                                            (item) => item.id === plant.id
+                                        )
                                             ? "Added to Cart"
                                             : "Add to Cart"}
                                     </button>

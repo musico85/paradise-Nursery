@@ -1,15 +1,13 @@
 .landing-page {
-    min-height: 600px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: center;
-    padding: 40px;
+min-height: 600px;
+background-image: url("./assets/plants2.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+text-align: center;
+padding: 40px;
 }
 
-.about-us {
-    color: black;
+.about-us-container {
+color: black;
 }
-
-
-

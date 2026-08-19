@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
-    increaseQuantity,
-    decreaseQuantity,
-    removeFromCart
+    updateQuantity,
+    removeItem
 } from "./redux/CartSlice";
 
 function CartItem() {
@@ -11,10 +10,36 @@ function CartItem() {
 
     const cartItems = useSelector((state) => state.cart.items);
 
-    const totalCart = cartItems.reduce(
-        (total, item) => total + item.price * item.quantity,
-        0
-    );
+    const calculateTotalCost = (item) => {
+        return item.price * item.quantity;
+    };
+
+    const calculateTotalAmount = () => {
+        return cartItems.reduce(
+            (total, item) => total + calculateTotalCost(item),
+            0
+        );
+    };
+
+    const handleIncrement = (item) => {
+        dispatch(
+            updateQuantity({
+                id: item.id,
+                quantity: item.quantity + 1
+            })
+        );
+    };
+
+    const handleDecrement = (item) => {
+        if (item.quantity > 1) {
+            dispatch(
+                updateQuantity({
+                    id: item.id,
+                    quantity: item.quantity - 1
+                })
+            );
+        }
+    };
 
     return (
         <div>
@@ -37,12 +62,13 @@ function CartItem() {
 
                         <p>Quantity: {item.quantity}</p>
 
-                        <p>Total: ${item.price * item.quantity}</p>
+                        <p>
+                            Total: ${calculateTotalCost(item)}
+                        </p>
 
                         <button
-                            onClick={() => { 
-                                dispatch(decreaseQuantity(item.id));
-                            }}
+                            onClick={() => handleDecrement(item)}
+                            disabled={item.quantity === 1}
                         >
                             -
                         </button>
@@ -50,17 +76,14 @@ function CartItem() {
                         <span> {item.quantity} </span>
 
                         <button
-                            onClick={() => {
-                                dispatch(increaseQuantity(item.id));
-                            }}
+                            onClick={() => handleIncrement(item)}
                         >
                             +
                         </button>
 
                         <button
-                            onClick={() =>
-                                dispatch(removeFromCart(item.id))
-                            }
+                            className="cart-item-delete"
+                            onClick={() => dispatch(removeItem(item.id))}
                         >
                             Remove
                         </button>
@@ -68,7 +91,10 @@ function CartItem() {
                 ))
             )}
 
-            <h2>Total del carrito: ${totalCart}</h2>
+            <h2>
+                Total del carrito: ${calculateTotalAmount()}
+            </h2>
+
             <div>
                 <Link to="/plants">
                     <button>Continue Shopping</button>
